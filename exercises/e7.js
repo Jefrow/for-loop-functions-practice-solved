@@ -10,11 +10,16 @@ export function getClientWithLeastBalance(array) {
 
   for (let i = 0; i < array.length; i++) {
     if (array[i].balance < m && array[i].balance != 0) {
-      notSoBroke.push(m = array[i]); 
+      m = array[i].balance; 
+    }
+  }
+  
+  for(let el of array){
+    if(el.balance === m){
+      notSoBroke.push(el)
     }
   }
   return notSoBroke; 
-
 }
 
 // === TEST YOURSELF ===
