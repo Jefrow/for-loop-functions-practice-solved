@@ -5,7 +5,22 @@
 
 export function getAllWithdrawals(array) {
   // Your code goes here...
+  let withdrawArr = [];
 
+
+  for (let el of array) {
+    if (el.withdrawals != undefined) {
+      let sum = 0
+      for (let i = 0; i < el.withdrawals.length; i++) {
+        sum += el.withdrawals[i]
+      }
+      withdrawArr.push(sum);
+    } else if (el.withdrawals == undefined) {
+      el.withdrawals = 0
+      withdrawArr.push(el.withdrawals);
+    }
+  }
+  return withdrawArr;
 }
 
 // === TEST YOURSELF ===
