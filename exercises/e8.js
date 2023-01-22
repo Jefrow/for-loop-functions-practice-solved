@@ -14,11 +14,13 @@ export function getClientWithGreatestBalance(array) {
       m = array[i].balance; 
     }
   }
+
   for(let el of array){
     if(el.balance === m){
       bigBaller.push(el)
     }
   } 
+  
   return bigBaller; 
 }
 
