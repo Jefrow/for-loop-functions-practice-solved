@@ -6,17 +6,17 @@
 export function getClientWithLeastBalance(array) {
   // Your code goes here...
   let notSoBroke = []; 
-  let m = array[0].balance;
+  let min = array[0].balance;
 
   for (let i = 0; i < array.length; i++) {
-    if (array[i].balance < m && array[i].balance != 0) {
-      m = array[i].balance; 
+    if (array[i].balance < min && array[i].balance != 0) {
+      min = array[i].balance; 
     }
   }
-  
-  for(let el of array){
-    if(el.balance === m){
-      notSoBroke.push(el)
+
+  for (let account of array) {
+    if (account.balance === min){
+      notSoBroke.push(account);
     }
   }
   return notSoBroke; 

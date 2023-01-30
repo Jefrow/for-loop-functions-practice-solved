@@ -6,7 +6,18 @@
 
 export function getAllAccountsWithSumsOfDepositsLess2000(array) {
   // Your code goes here...
-
+  let accountsArr = [];
+  for (let account of array) {
+    if (account.deposits == undefined) {
+      accountsArr.push(account);
+    } else {
+      const depositsSum = account.deposits.reduce((acc, currVal) => acc + currVal, 0);
+      if (depositsSum < 2000) {
+        accountsArr.push(account);
+      }
+    }
+  }
+  return accountsArr;
 }
 
 
