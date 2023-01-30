@@ -20,7 +20,6 @@ export function separateNamesWithAFromRest(array) {
     }
   }
 
-
   for (let n = 0; n < array.length; n++) {
     let match = false;
     for (let m = 0; m < hasA.length; m++) {

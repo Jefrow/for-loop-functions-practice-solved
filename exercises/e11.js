@@ -7,7 +7,6 @@ export function getAllWithdrawals(array) {
   // Your code goes here...
   let withdrawArr = [];
 
-
   for (let account of array) {
     if (account.withdrawals != undefined) {
       let sum = 0
