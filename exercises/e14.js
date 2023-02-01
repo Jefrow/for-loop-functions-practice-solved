@@ -7,7 +7,6 @@
 
 export function getClientsWithWrongBalance(array) {
   // Your code goes here...
-
   let wrongBalance = [];
 
   for (let account of array) {

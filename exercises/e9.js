@@ -6,7 +6,6 @@
 
 export function getClientsWithBalanceOverOneHundred(array) {
   // Your code goes here...
-
   let accountsArray = []; 
 
   for (let i = 0 ; i < array.length; i++){

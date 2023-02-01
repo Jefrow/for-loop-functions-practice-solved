@@ -6,6 +6,7 @@
 export function getClientsWithLetterInName(array, letter) {
   // Your code goes here...
   let nameArr = [];
+  
   for (let i = 0; i < array.length; i++) {
     let name = array[i].name
     for (let n = 0; n < name.length; n++){
