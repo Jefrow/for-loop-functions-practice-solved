@@ -7,6 +7,7 @@
 
 export function getClientsWithWrongBalance(array) {
   // Your code goes here...
+
   let wrongBalance = []
 
   for (let i = 0; i < array.length; i++) {
@@ -16,19 +17,31 @@ export function getClientsWithWrongBalance(array) {
     let deposits = accounts.deposits
 
     if (withdrawals != undefined && deposits != undefined) {
-      let withdrawalSum = withdrawals.reduce((withdrawals, currVal) => withdrawals + currVal, 0);
-      let depositSum = deposits.reduce((deposit, currVal) => deposit + currVal, 0);
+      let withdrawalSum = 0;
+      for (let j = 0; j < withdrawals.length; j++) {
+        withdrawalSum += withdrawals[j]
+      }
+      let depositSum = 0;
+      for (let n = 0; n < deposits.length; n++) {
+        depositSum += deposits[n]
+      }
       if (depositSum - withdrawalSum != accounts.balance) {
         wrongBalance.push(accounts);
       }
     } else if (withdrawals == undefined && deposits != undefined) {
       let withdrawalSum = 0;
-      let depositSum = deposits.reduce((deposit, currVal) => deposit + currVal, 0);
+      let depositSum = 0;
+      for (let n = 0; n < deposits.length; n++) {
+        depositSum += deposits[n]
+      }
       if (depositSum - withdrawalSum != accounts.balance) {
         wrongBalance.push(accounts);
       }
     } else if (withdrawals != undefined && deposits == undefined) {
-      let withdrawalSum = withdrawals.reduce((withdrawal, currVal) => withdrawal + currVal, 0)
+      let withdrawalSum = 0;
+      for (let j = 0; j < withdrawals.length; j++) {
+        withdrawalSum += withdrawals[j]
+      }
       let depositSum = 0;
       if (depositSum - withdrawalSum != accounts.balance) {
         wrongBalance.push(accounts);
@@ -43,6 +56,7 @@ export function getClientsWithWrongBalance(array) {
 
   }
   return wrongBalance
+
 }
 
 
