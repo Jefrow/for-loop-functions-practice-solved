@@ -8,55 +8,25 @@
 export function getClientsWithWrongBalance(array) {
   // Your code goes here...
 
-  let wrongBalance = []
+  let wrongBalance = [];
 
-  for (let i = 0; i < array.length; i++) {
-
-    let accounts = array[i];
-    let withdrawals = accounts.withdrawals
-    let deposits = accounts.deposits
-
-    if (withdrawals != undefined && deposits != undefined) {
-      let withdrawalSum = 0;
-      for (let j = 0; j < withdrawals.length; j++) {
-        withdrawalSum += withdrawals[j]
+  for (let account of array) {
+    if (account.withdrawals && account.deposits) {
+      let sumW = 0;
+      for (let wd of account.withdrawals) {
+        sumW += wd;
       }
-      let depositSum = 0;
-      for (let n = 0; n < deposits.length; n++) {
-        depositSum += deposits[n]
+      let sumD = 0;
+      for (let dep of account.deposits) {
+        sumD += dep
       }
-      if (depositSum - withdrawalSum != accounts.balance) {
-        wrongBalance.push(accounts);
-      }
-    } else if (withdrawals == undefined && deposits != undefined) {
-      let withdrawalSum = 0;
-      let depositSum = 0;
-      for (let n = 0; n < deposits.length; n++) {
-        depositSum += deposits[n]
-      }
-      if (depositSum - withdrawalSum != accounts.balance) {
-        wrongBalance.push(accounts);
-      }
-    } else if (withdrawals != undefined && deposits == undefined) {
-      let withdrawalSum = 0;
-      for (let j = 0; j < withdrawals.length; j++) {
-        withdrawalSum += withdrawals[j]
-      }
-      let depositSum = 0;
-      if (depositSum - withdrawalSum != accounts.balance) {
-        wrongBalance.push(accounts);
-      }
-    } else if (withdrawals == undefined && deposits == undefined) {
-      let depositSum = 0;
-      let withdrawalSum = 0;
-      if (depositSum - withdrawalSum != accounts.balance) {
-        wrongBalance.push(accounts)
+      let newBal = sumD - sumW;
+      if (newBal !== account.balance) {
+        wrongBalance.push(account);
       }
     }
-
   }
   return wrongBalance
-
 }
 
 

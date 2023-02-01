@@ -8,15 +8,14 @@ export function getAllWithdrawals(array) {
   let withdrawArr = [];
 
   for (let account of array) {
-    if (account.withdrawals != undefined) {
+    if (account.withdrawals) {
       let sum = 0
       for (let i = 0; i < account.withdrawals.length; i++) {
         sum += account.withdrawals[i]
       }
       withdrawArr.push(sum);
-    } else if (account.withdrawals == undefined) {
-      account.withdrawals = 0
-      withdrawArr.push(account.withdrawals);
+    } else {
+      withdrawArr.push(0);
     }
   }
   return withdrawArr;

@@ -8,8 +8,8 @@
 export function flatArrays(array) {
   // Your code goes here...
   let flat = []
-  for (let miniArr of array){
-    for (let el of miniArr){
+  for (let subArr of array){
+    for (let el of subArr){
       flat.push(el); 
     }
   }
