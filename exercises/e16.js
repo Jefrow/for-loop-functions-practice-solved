@@ -8,9 +8,9 @@
 export function flatArrays(array) {
   // Your code goes here...
   let flat = []
-  for (let i = 0; i < array.length; i++){
-    for (let j = 0; j < array[i].length; j++){
-      flat.push(array[i][j]); 
+  for (let miniArr of array){
+    for (let el of miniArr){
+      flat.push(el); 
     }
   }
   return flat
